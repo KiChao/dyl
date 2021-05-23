@@ -1,0 +1,98 @@
+<template>
+	<view>
+
+		<search-bar></search-bar>
+
+
+		<view class="cate-window flex">
+			<scroll-view :show-scrollbar="false" scroll-y="true" class="left-window">
+				<view @click="chooseCate(index)" v-for="(item,index) in cateList" :key="index" :class="{active:selectIndex==index}"
+				 class="default-window u-text-center">
+					{{item.name}}
+				</view>
+			</scroll-view>
+			<scroll-view :show-scrollbar="false" scroll-y="true" class="right-window">
+				<view style="padding: 20rpx 10rpx;">
+					<u-row gutter="20">
+						<u-col v-for="(item,index) in childList" :key="index" span="4" text-align="center">
+							<navigator hover-class="none" :url="`/pages/product/product?loadId=${item.cate_id}&&title=${item.name}`" style="margin-bottom: 40rpx;">
+								<u-image :fade="false" :src="item.image" width="100%" mode="widthFix"></u-image>
+								
+							</navigator>
+						</u-col>
+					</u-row>
+				</view>
+
+			</scroll-view>
+		</view>
+	</view>
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				activeItem: 0,
+				cateList: [],
+				childList: [],
+				selectIndex: 0,
+				
+			};
+		},
+		onReady() {
+			this.loadCate();
+		},
+		methods: {
+
+			loadCate() {
+				this.$api('Cate/lists').then(data => {
+					console.log(data);
+					if (data.status == 1) {
+						this.cateList = data.data.cate;
+						this.childList = this.cateList[0].child;
+					} else {
+						this.$showToast(data.msg);
+					}
+				})
+			},
+			chooseCate(index) {
+				this.childList = [];
+				this.selectIndex = index;
+				this.childList = this.cateList[index].child;
+			}
+		}
+	}
+</script>
+
+<style lang="scss">
+	.search-window {
+		position: fixed;
+		width: 100%;
+		border-bottom: 2rpx solid #f3f4f6;
+		z-index: 10;
+	}
+
+	.cate-window {
+		height: 100vh;
+		padding-top: 104rpx;
+
+		.left-window {
+			height: 100%;
+			width: 200rpx;
+			background-color: #FFFFFF;
+			border-right: 2rpx solid #f3f4f6;
+
+			.active {
+				background-color: $u-type-success;
+				color: #FFFFFF;
+				font-weight: bold;
+			}
+		}
+
+		.right-window {
+			background-color: #FFFFFF;
+			height: 100%;
+			flex: 1;
+		}
+	}
+</style>
