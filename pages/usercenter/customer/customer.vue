@@ -46,7 +46,7 @@
 			//拨打客服电话
 			callCustomer() {
 				uni.makePhoneCall({
-					phoneNumber: '15988726998' //仅为示例
+					phoneNumber: '15958748770' //仅为示例
 				});
 			}
 		}

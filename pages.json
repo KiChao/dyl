@@ -262,6 +262,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/usercenter/rechange/rechange",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "充值",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"tabBar": {
 		"color": "#333333",

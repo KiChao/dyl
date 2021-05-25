@@ -229,7 +229,7 @@
 				this.$showModal('是否支付该笔订单？', () => {
 
 					let params = {
-						is_mini: 1,
+						
 						no: no
 					};
 					this.$api('Pay/order', params).then(data => {

@@ -60,7 +60,6 @@
 			loadIndex() {
 				this.$api('Index/index').then(data => {
 					if (data.status == 1) {
-						
 						this.carouselList = data.data.carousel;
 						this.modalList = data.data.module;
 					} else {

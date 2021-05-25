@@ -9,7 +9,10 @@
 				{{item.symbol}}{{item.num}}
 			</view>
 		</view>
-
+		<view v-if="log.length==0" class="default-window">
+			<u-empty text="暂无记录" mode="list"></u-empty>
+		</view>
+		
 	</view>
 </template>
 
@@ -27,6 +30,15 @@
 		},
 		onLoad(data) {
 			this.type = data.type;
+			if(this.type==1){
+				uni.setNavigationBarTitle({
+					title:'奖金记录'
+				})
+			}else{
+				uni.setNavigationBarTitle({
+					title:'充值记录'
+				})
+			}
 		},
 		onReachBottom() {
 			this.loadLog();

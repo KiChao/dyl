@@ -10,6 +10,7 @@
 					<!-- <navigator url="/pages/usercenter/integralRecord/integralRecord" hover-class="none">
 						<u-tag :text="`钱包：${walletInfo.num_1}`" mode="dark"  shape="circle" type="success"></u-tag>
 					</navigator> -->
+					<view>等级：{{userInfo.lv_text}}</view>
 					<navigator url="/pages/usercenter/team/team" class="u-font-14">推广人数：{{userInfo.spread_num}}</navigator>
 				</view>
 				<navigator v-else url="/pages/public/login" hover-class="none" class="nickname-window">
@@ -27,12 +28,19 @@
 		</view>
 		<view v-if="loginStatus" class="card flex default-window wallet-window">
 			<navigator hover-class="none" url="/pages/usercenter/integralRecord/integralRecord?type=1" class="wallet-item">
-				<u-tag :text="`奖金余额：${walletInfo.num_1}`" mode="dark" shape="circle" type="success"></u-tag>
+				<!-- <u-tag :text="`奖金余额：${walletInfo.num_1}`" mode="dark" shape="circle" type="success"></u-tag> -->
+				<view>{{walletInfo.num_1}}</view>
+				<view>奖金余额</view>
 			</navigator>
 			<navigator hover-class="none" url="/pages/usercenter/integralRecord/integralRecord?type=2" class="wallet-item">
-				<u-tag :text="`充值余额：${wallet_4}`" mode="dark" shape="circle" type="success"></u-tag>
+				<!-- <u-tag :text="`充值余额：${wallet_4}`" mode="dark" shape="circle" type="success"></u-tag> -->
+				<view>{{wallet_4}}</view>
+				<view>充值余额</view>
 			</navigator>
 		</view>
+		<navigator url="/pages/usercenter/rechange/rechange" hover-class="none">
+			<image src="/static/usercenter/rechange.png" class="image" mode="widthFix"></image>
+		</navigator>
 		<view v-if="loginStatus" class="card">
 			<view class="default-window bold">
 				订单记录
