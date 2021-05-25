@@ -49,7 +49,8 @@
 				this.page = this.page + 1;
 				let params = {
 					page: this.page,
-					limit: 10
+					limit: 10,
+					type:this.type
 				}
 				this.$api('WalletLog/lists', params).then(data => {
 					if (data.status == 1) {

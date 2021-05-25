@@ -1,5 +1,6 @@
 <template>
 	<view>
+		<image src="/static/usercenter/rechange-bg.jpg" class="image" mode="widthFix"></image>
 		<view class="Lwindow">
 			<view @click="choose(item.recharge_tpl_id)" v-for="(item,index) in tpl" :key="index" class="item">
 				<view class="items" :class="{active:rechangeId==item.recharge_tpl_id}">

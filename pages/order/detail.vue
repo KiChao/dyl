@@ -35,7 +35,7 @@
 			</view>
 			<view class="default-window flex place">
 				<view>支付方式</view>
-				<view class="font-red bold">现金支付</view>
+				<view class="font-red bold">{{orderInfo.pay_type}}</view>
 			</view>
 			<view class="default-window flex place">
 				<view>留言</view>
