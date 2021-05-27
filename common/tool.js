@@ -106,7 +106,7 @@ export const pay = async function(response) {
 /* 用户服务通知授权 */
 export const getD = async function(fnc = () => {}) {
 	wx.requestSubscribeMessage({
-		tmplIds: ['o711luFG1AWIuaqLxX-SSKGJCzqEKLrvczlMyNmyLL4'],
+		tmplIds: ['6QZY5QFmUWRqMd4zLirL1PP8zZbl603q0BcxwUuWxIM'],
 		success(res) {
 			fnc();
 		},
